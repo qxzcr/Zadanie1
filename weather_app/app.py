@@ -11,11 +11,10 @@ logger = logging.getLogger(__name__)
 #Inicjalizacja aplikacji Flask
 app = Flask(__name__)
 
-#Dane autora i port
 AUTHOR = "Yelyzaveta Zlydnieva"
 PORT = os.getenv("PORT", 5000)
 
-#Słownik z krajami i miastami
+
 COUNTRIES_CITIES = {
     "Polska": ["Warszawa", "Kraków", "Gdańsk", "Wrocław", "Lublin"],
     "Niemcy": ["Berlin", "Monachium", "Hamburg", "Kolonia", "Frankfurt"],
@@ -65,7 +64,7 @@ def index():
         selected_country = list(COUNTRIES_CITIES.keys())[0]
         cities = COUNTRIES_CITIES[selected_country]
 
-    #Strona HTML
+    
     return render_template("index.html", countries=COUNTRIES_CITIES.keys(), cities=cities, selected_country=selected_country, weather_data=weather_data)
 
 
